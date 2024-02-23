@@ -1,20 +1,11 @@
-* {
-  /* outline: 1px solid lightcoral; */
-}
-
 /* GLOBAL ELEMENTS */
 
-html {
-  font-family: "Nunito Sans", sans-serif;
-  line-height: 1.45;
-}
-
-body,
-h1,
-p {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+  line-height: 1.45;
 }
 
 h1 {
@@ -31,6 +22,7 @@ p {
 }
 
 .wrapper {
+  min-width: 300px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem;
@@ -42,23 +34,18 @@ p {
 
 .bg-slant {
   position: absolute;
-  top: -100px;
+  top: -600px;
   left: 0;
   right: 0;
-  min-height: 30em;
+  min-height: 60em;
   background-color: rgb(33, 160, 202);
   transform: skewY(-30deg);
   z-index: -1;
   box-shadow: 0 0.25rem 0.5em rgb(0 0 0 / 25%);
 }
 
-.about-me-container {
-  z-index: 1;
-  position: relative;
-}
-
-.img-container {
-  max-width: 500px;
+.img-profile-container {
+  max-width: 780px;
   height: 500px;
 }
 
@@ -66,17 +53,18 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  box-shadow: 0 0.25rem 0.5em rgb(0 0 0 / 15%);
+  box-shadow: 0 0.25rem 0.25em rgb(0 0 0 / 15%);
 }
 
 .name {
   font-family: "Lora", serif;
-  font-size: 4rem;
+  font-size: 3.25rem;
   color: #fff;
   position: absolute;
-  top: 20.5rem;
-  left: 1rem;
+  top: 27rem;
+  left: 2.25rem;
   text-shadow: 0px 4px 8px rgb(0 0 0 / 25%);
+
 }
 
 .about-me {
@@ -94,11 +82,13 @@ p {
   margin: 2rem 0 5rem;
 }
 
+
 /* MAIN ELEMENTS */
 
 .grid {
   display: grid;
-  gap: 5rem 3rem;
+  gap: 4rem 3rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   margin-bottom: 10rem;
 }
 
@@ -152,9 +142,35 @@ p {
   font-size: 1.1rem;
 }
 
+
+/* COLORS */
+
+.purple {
+  background-color: rgb(150, 94, 234);
+}
+
+.orange {
+  background-color: orange;
+}
+
+.green {
+  background-color: rgb(67, 135, 24);
+}
+
+.pink {
+  background-color: rgb(214, 112, 150);
+}
+
+.blue {
+  background-color: rgb(47, 152, 237);
+}
+
+
 /* FOOTER ELEMENTS */
 
 footer {
+  display: flex;
+  flex-direction: column;
   background-color: rgb(33, 160, 202);
   min-height: 30rem;
   color: #fff;
@@ -173,6 +189,11 @@ footer {
 
 .icon-large {
   width: 3rem;
+}
+
+.img-contact-container {
+  max-width: 1000px;
+  height: 450px;
 }
 
 .img-contact {
@@ -198,24 +219,107 @@ footer {
   margin-right: 0.5rem;
 }
 
-/* COLORS */
 
-.purple {
-  background-color: rgb(150, 94, 234);
+/* RESPONSIVE DESIGN - Tablet and Desktop */
+
+@media (min-width: 768px) {
+  .bg-slant {
+    transform: skewY(-15deg);
+  }
+  .wrapper {
+    padding: 2rem 5rem;
+  }
+  h1 {
+    text-align: left;
+  }
+  .name {
+    position: absolute;
+    top: 2rem;
+    left: 33.25rem;
+    transform: translateX(-50%);
+    z-index: 3;
+    min-width: 500px;
+  }
+  .img-profile-container {
+    position: relative;
+    max-width: 350px;
+    width: 100%;
+    height: 400px;
+    padding: 1rem;
+    margin-top: -11rem;
+    margin-left: -6rem;
+    z-index: 2;
+    float: left;
+  }
+  .about-me-card {
+    box-shadow: 0 0.25rem 0.25em rgb(0 0 0 / 25%);
+    padding: 3rem 2rem 4rem;
+    background-color: #fff;
+    margin-top: 8rem;
+  }
+  .about-me {
+    margin: 0 0 0.5rem;
+    text-align: center;
+  }
+  .contact-icon-container {
+    justify-content: flex-start;
+  }
+  .social-icon-container {
+    display: none;
+  }
+  footer {
+    flex-direction: row;
+  }
+  .img-contact {
+    padding-left: 1.5rem;
+  }
 }
 
-.orange {
-  background-color: orange;
-}
-
-.green {
-  background-color: rgb(67, 135, 24);
-}
-
-.pink {
-  background-color: rgb(214, 112, 150);
-}
-
-.blue {
-  background-color: rgb(47, 152, 237);
+@media (min-width: 1024px) {
+  .wrapper {
+    padding: 2rem 4rem;
+  }
+  .name {
+    position: relative;
+    top: -5.5rem;
+    left: 16.5rem;
+    z-index: 3;
+    min-width: 500px;
+  }
+  .img-profile-container {
+    max-width: 350px;
+    width: 100%;
+    height: 500px;
+    padding: 1.5rem;
+    margin-top: -5.5rem;
+    margin-left: -3.5rem;
+    z-index: 2;
+    float: left;
+  }
+  .about-me-card {
+    box-shadow: 0 0.25rem 0.25em rgb(0 0 0 / 25%);
+    padding: 2rem;
+    background-color: #fff;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    box-sizing: border-box;
+    height: 380px;
+  }
+  .about-me {
+    margin: 0 0 0.5rem;
+    text-align: left;
+  }
+  .contact-icon-container {
+    justify-content: flex-start;
+  }
+  .social-icon-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+  footer {
+    flex-direction: row;
+    gap: 1rem;
+  }
 }
